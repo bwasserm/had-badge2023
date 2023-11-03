@@ -67,7 +67,7 @@ async def vos_main():
     splashes = [
         # "splash_x.jpg",
         # "splash_7.jpg",
-        "splash_wrencher.jpg", 
+        # "splash_wrencher.jpg",
         "badgey.jpg"]
     screen.jpg(random.choice(splashes))
     await asyncio.sleep_ms(1000)
