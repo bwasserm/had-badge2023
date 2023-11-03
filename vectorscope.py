@@ -41,7 +41,7 @@ class Vectorscope():
         gc.collect()
 
         ## Fire up the I2S output feeder
-        # self.wave = Waveform()
+        self.wave = Waveform() 
         gc.collect()
 
         ## sets up memory, DMAs to continuously read in ADC data into a 16-stage buffer
@@ -97,7 +97,7 @@ class Vectorscope():
 
         self.pixel_pusher.deinit()
         self.adc_reader.deinit()
-        # self.wave.deinit()
+        self.wave.deinit()
         self.codec.deinit()
 
         ## doesn't seem to work.  

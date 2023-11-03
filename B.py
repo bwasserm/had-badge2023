@@ -23,8 +23,8 @@ async def kminimal_example(v):
             if _abort:
                 print("Get out!")
                 break
-            # v.wave.constantX(int(math.cos(i * math.pi / 180 * 5*_xscale) * 10000))
-            # v.wave.constantY(int(math.sin(i * math.pi / 180 * 5*_yscale)* 10000))
+            v.wave.constantX(int(math.cos(i * math.pi / 180 * 5*_xscale) * 10000))
+            v.wave.constantY(int(math.sin(i * math.pi / 180 * 5*_yscale)* 10000))
             await asyncio.sleep_ms(10)
             
 
