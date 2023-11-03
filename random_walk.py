@@ -11,7 +11,7 @@ class RW():
     def random_walk(self, x, y):
         x = x + random.randint(-self.scale,self.scale) 
         y = y + random.randint(-self.scale,self.scale)
-        self.v.wave.point(x,y)
+        # self.v.wave.point(x,y)
         return x,y
 
     def go(self):

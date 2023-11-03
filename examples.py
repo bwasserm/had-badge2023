@@ -9,8 +9,8 @@ from random_walk import RW
 def minimal_example(v):
     ## Minimal example
     for i in range(200):
-        v.wave.constantX(int(math.cos(i * math.pi / 180 * 5) * 10000))
-        v.wave.constantY(int(math.sin(i * math.pi / 180 * 5)* 10000))
+        # v.wave.constantX(int(math.cos(i * math.pi / 180 * 5) * 10000))
+        # v.wave.constantY(int(math.sin(i * math.pi / 180 * 5)* 10000))
         time.sleep_ms(10)
 
 
@@ -21,10 +21,10 @@ def static_buffer_example(v):
     ## To make your life easier, v.wave.packX() will put a list of 16-bit ints there for you
 
     ramp = range(-2**15, 2**15, 2**8)
-    v.wave.packX(ramp)
+    # v.wave.packX(ramp)
 
     sine = [int(math.sin(2*x*math.pi/256)*16_000) for x in range(256)]
-    v.wave.packY(sine)
+    # v.wave.packY(sine)
 
     time.sleep_ms(1000)
 
@@ -37,15 +37,15 @@ def animated_buffer_example(v):
     ## Each output buffer frame has 256 samples, so takes ~8.5 ms at 30 kHz
 
     ramp = range(-2**15, 2**15, 2**8)
-    v.wave.packX(ramp)
+    # v.wave.packX(ramp)
     
-    v.wave.outBuffer_ready = False
+    # v.wave.outBuffer_ready = False
     for i in range(200):  
         sine = [int(math.sin((50*i)+2*x*math.pi/256)*16_000) for x in range(256)]
-        while not v.wave.outBuffer_ready:
-            pass
-        v.wave.packY(sine)
-        v.wave.outBuffer_ready = False
+        # while not v.wave.outBuffer_ready:
+        #     pass
+        # v.wave.packY(sine)
+        # v.wave.outBuffer_ready = False
 
     ## Any stuck pixels you see are a figment of your imagination.  :)
     ## Or a desperate call for a pull request.  Your call.
@@ -54,11 +54,12 @@ def random_walk_example(v):
     ## Example with a class, makes it tweakable on the command line
     ## because half the fun here is live coding and experimentation
 
-    r = RW(v.wave)
-    # print(dir(r))
-    r.scale = 1000
-    r.delay = 5
-    r.go()
+    # r = RW(v.wave)
+    # # print(dir(r))
+    # r.scale = 1000
+    # r.delay = 5
+    # r.go()
+    pass
     
     
 def vos_main():
