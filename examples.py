@@ -86,7 +86,7 @@ if __name__ == "__main__":
     minimal_example(v)
     static_buffer_example(v)
     animated_buffer_example(v)
-    random_walk_example(v)
+    # random_walk_example(v)
 
     v.deinit()
     ## before you reload, you have to deinitialize all of the DMA

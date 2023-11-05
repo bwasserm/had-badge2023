@@ -14,12 +14,18 @@ def text_overlay():
     screen.text(60,25,"SUPERCON")
     screen.text(85,190,"2023")
 
+
+def user(key):
+    screen.jpg("badgey.jpg")   # button A globe
+    screen.text(60,180,"I'm Ben!")
+
+
 def back(key):
-    screen.jpg("bluemarble.jpg")   # button A globe
+    screen.jpg("pl_earth.jpg")   # button A globe
     text_overlay()
     
 def fwd(key):
-    screen.jpg("wrencher.jpg")      # button B wrencher
+    screen.jpg("splash_wrencher.jpg")      # button B wrencher
     text_overlay()
     
 def menu(key):						# menu -bail out
@@ -29,7 +35,6 @@ def menu(key):						# menu -bail out
 def startlcd(key):					# button D - start LCD
     if screen.tft==None:
         screen.wake()
-        back(None)
 
 def stoplcd(key):					# button C stop LCD
     if screen.tft!=None:
@@ -39,8 +44,9 @@ def stoplcd(key):					# button C stop LCD
 async def vos_main():
     global exit_flag
     keys=keyboardcb.KeyboardCB({keyleds.KEY_A: back, keyleds.KEY_B: fwd, keyleds.KEY_C: stoplcd, keyleds.KEY_D: startlcd,
-                                keyleds.KEY_MENU: menu})
-    back(None)
+                                keyleds.KEY_MENU: menu, keyleds.KEY_USER: user})
+    startlcd(None)
+    user(None)
     while exit_flag==False:
         await asyncio.sleep_ms(500)
         if vectoros.vectoros_active==False:

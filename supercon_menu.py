@@ -19,6 +19,11 @@ def planets(arg):
     vectoros.launch_task('planets')  # launch
     return EXIT
 
+def slideshow(arg):
+    vos_state.show_menu=False     # get the menu of the way
+    vectoros.launch_task('slideshow')  # launch
+    return EXIT
+
 def menu_custom(the_menu):
     if the_menu.level==1:
         if machine.Pin(22).value():
@@ -80,11 +85,14 @@ async def vos_main():
         with Menu(clear_after=True,fg_color=colors.PHOSPHOR_DARK,bg_color=colors.PHOSPHOR_BG,
                   cursor_bg=colors.PHOSPHOR_BG, cursor_fg=colors.PHOSPHOR_BRIGHT) as amenu:  
             ## name in menu, command to run, return value?
-            submenu=[["  Planets", planets, 0],["  Sketch",runsketch,0],["  Back",m_exit,None]]
-            mainmenu=[[" Lissajous", run_lissajous,None],
+            submenu=[["  Planets", planets, 0],
+                     ["  Sketch", runsketch, 0],
+                     ["  Slideshow", slideshow, 0],
+                     ["  Back",m_exit,None]]
+            mainmenu=[[" Lissajous", run_lissajous, None],
                       [" Demos", SUBMENU, submenu] ,
                       [" Sound", toggle_sound, None],
-                      [" Reboot",reboot,False],
+                      [" Reboot", reboot, False],
                       ]
 
 # comment next line for default font

@@ -41,7 +41,7 @@ class Vectorscope():
         gc.collect()
 
         ## Fire up the I2S output feeder
-        self.wave = Waveform() 
+        self.wave = Waveform()
         gc.collect()
 
         ## sets up memory, DMAs to continuously read in ADC data into a 16-stage buffer

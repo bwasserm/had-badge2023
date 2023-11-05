@@ -2,15 +2,16 @@ import random
 import time
 
 class RW():
-    def __init__(self, vectorscope, scale=5000, iterations=1000, delay=10):
+    def __init__(self, vectorscope, scale=5000, iteratons=1000, delay=10, iterations=10):
         self.scale = scale
         self.v = vectorscope
         self.delay = delay
         self.iterations=iterations
 
     def random_walk(self, x, y):
-        x = x + random.randint(-self.scale,self.scale) 
+        x = x + random.randint(-self.scale,self.scale)
         y = y + random.randint(-self.scale,self.scale)
+        print(type(self.v))
         self.v.wave.point(x,y)
         return x,y
 
